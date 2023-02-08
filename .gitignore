@@ -1,5 +1,7 @@
-# ignore private google takeout location data
+# ignore private data
 Takeout/*
+*.json
+*.db
 
 # generic pythong .gitignore stuff below:
 # ------- source: https://github.com/github/gitignore/blob/main/Python.gitignore ------
