@@ -47,6 +47,7 @@ def index():
 @app.route('/upload', methods=['GET', 'POST'])
 def upload_data():
     if request.method == "POST":
+        # flask docs: https://flask.palletsprojects.com/en/2.2.x/patterns/fileuploads/
         # check if post request has the file part
         if 'file' not in request.files:
             flash("no file part!")
@@ -63,5 +64,7 @@ def upload_data():
         if file:
             filename = secure_filename(file.filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            flash("file uploaded successfully!")
             # return redirect(url_for(analysis))
+            # TODO: redirect somewhere else here after successful upload of file
     return render_template("upload.html")
