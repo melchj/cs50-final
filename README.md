@@ -74,3 +74,25 @@ these json files appear to contain location data and timestamps, as well as the 
 
 looking through these files, it is a bit spooky how much data there is on my minute-by-minute activities and the stores/locations that google assumes/knows i've been to.
 
+# running the server
+## 1. python virtual enviornment
+create the virtual enviornment:
+ ```bash
+ $ python -m venv venv
+ ```
+
+activate the virtual environment (linux):
+```bash
+$ . venv/bin/activate
+```
+
+install dependancies:
+```bash
+$ pip install -r requirements.txt
+```
+
+## 2. start the flask server
+```bash
+$ flask run
+```
+then check it out in your browser at `http://127.0.0.1:5000/`
