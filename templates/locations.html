@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Locations
+{% endblock %}
+
+{% block main %}
+
+<h2>Enter Location Data</h2>
+<p>
+Provide the latitude & longitude of the following locations as well as the time period of interest to analyze your commute:
+</p>
+
+<form method="post">
+    <div class="row g-2">
+        <div class="col">
+            <h3>Home Location:</h3>
+        </div>
+        <div class="col">
+            <h3>Work Location:</h3>
+        </div>
+    </div>
+    <div class="row g-2">
+        <div class="col">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="home-lat" name="home-lat" placeholder="0" value="42.377121764111976">
+                <label for="home-lat">Home Latitude</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="work-lat" name="work-lat" placeholder="0" value="42.360225751699154">
+                <label for="work-lat">Work Latitude</label>
+            </div>
+        </div>
+    </div>
+    <div class="row g-2 py-3">
+        <div class="col">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="home-lon" name="home-lon" placeholder="0" value="-71.11669228778328">
+                <label for="home-lon">Home Longitude</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="work-lon" name="work-lon" placeholder="0" value="-71.0942351031248">
+                <label for="work-lon">Work Longitude</label>
+            </div>
+        </div>
+    </div>
+
+    <h3>Time Period:</h3>
+    <div class="row g-2">
+        <div class="col">
+            <div class="form-floating">
+                <input type="date" class="form-control" id="start-date" name="start-date" placeholder="0">
+                <label for="start-date">Start Date</label>
+            </div>
+        </div>
+        <div class="col">
+            <div class="form-floating">
+                <input type="date" class="form-control" id="end-date" name="end-date" placeholder="0">
+                <label for="end-date">End Date</label>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 py-3">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</form>
+
+{% endblock %}

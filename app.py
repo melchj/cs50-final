@@ -1,6 +1,8 @@
 import os
-from flask import Flask, redirect, render_template, flash, request
+from flask import Flask, redirect, render_template, flash, request, url_for
 from werkzeug.utils import secure_filename
+import sqlite3
+from parse_history import json_to_db
 
 # Configure application
 app = Flask(__name__)
@@ -12,6 +14,8 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 app.config["UPLOAD_FOLDER"] = os.path.join(os.path.dirname(__file__), 'uploads')
 
+# connect to database
+con = sqlite3.connect("main.db")
 
 @app.after_request
 def after_request(response):
@@ -63,8 +67,23 @@ def upload_data():
             return redirect(request.url)
         if file:
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-            flash("file uploaded successfully!")
-            # return redirect(url_for(analysis))
-            # TODO: redirect somewhere else here after successful upload of file
+            filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(filepath)
+            flash("file uploaded successfully! analysis starting...")
+            json_to_db(filepath, con)
+            return redirect(url_for(choose_locations))
     return render_template("upload.html")
+
+@app.route('/locations', methods=["GET", "POST"])
+def choose_locations():
+    '''
+    ask the user to choose where "home" and "work" are (coordinates)
+    '''
+    # TODO: make this somewhat automated based on location data
+    # at least give list of "most visited" coordinates
+    return render_template("locations.html")
+
+@app.route('/analyze', methods=["GET"])
+def analyze_data():
+    # will there be a conflict here if the DB is still being read from the json file? not sure...
+    return render_template("analysis.html")

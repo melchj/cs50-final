@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Analysis
+{% endblock %}
+
+{% block main %}
+<div>
+    Data analysis!!
+</div>
+
+<ol>
+    <li>Get your location data from Google Takeout.</li>
+    <li>Extract the large .json file from the Takeout export.</li>
+    <li>Upload the "Records.json" file below to start analysis!</li>
+</ol>
+
+<form class="row g-3" method="post" enctype=multipart/form-data>
+    <!-- <label for="formFile" class="form-label">Select your "Records.json" file</label> -->
+    <input class="form-control" type="file" name="file" id="formFile">
+    <button type="submit" class="btn btn-success">Upload Data!</button>
+</form>
+{% endblock %}

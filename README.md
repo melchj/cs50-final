@@ -1,7 +1,7 @@
 # cs50 final project
 a project to satisfy cs50's final assignment.
 
-for now, this app is entirely a proof of concept and has a lot of features/bugs still to be addressed. the largest issue being: if this was actually a public website, only one user could use it at a time... user accounts or local analysis needs to be implemented to resolve this, but that is not the part of this project that I wanted to focus on. also i imagine there are numerous security issues with allowing users to upload a file directly to the server.
+for now, this app is entirely a proof of concept and has a lot of features/bugs still to be addressed. the largest issue being: the flask webserver is only implemented to give a user-facing gui; if this was actually a public website, only one user could use it at a time... user accounts or local analysis needs to be implemented to resolve this, but that is not the part of this project that I wanted to focus on. also i imagine there are numerous security issues with allowing users to upload a file directly to the server.
 
 ## commute tracker/visualizer
 ---
